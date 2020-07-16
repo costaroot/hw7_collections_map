@@ -22,20 +22,14 @@ public class NumberMap {
         String line = scanner.nextLine();
         scanner.close();
         Scanner scan = new Scanner(line);
-        int i;
-        i = 0;
         while (scan.hasNextInt()) {
             int number = scan.nextInt();
-            numbers.put(i, number);
-            i++;
+            numbers.put(number, number);
         }
+        scan.close();
     }
 
     public Set<Integer> uniqueValues() {
-        Set<Integer> uniqueValues = new HashSet<>();
-        for (Integer val : numbers.values()) {
-            uniqueValues.add((val));
-        }
-        return uniqueValues;
+        return new HashSet<>(numbers.values());
     }
 }
